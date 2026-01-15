@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1060" viewBox="0 0 1400 1060">
+  <defs>
+    <style>
+      .title { font: 700 26px 'Noto Sans KR', Arial, sans-serif; fill: #111; }
+      .label { font: 600 18px 'Noto Sans KR', Arial, sans-serif; fill: #111; }
+      .text  { font: 16px 'Noto Sans KR', Arial, sans-serif; fill: #111; }
+      .box   { fill: #fff; stroke: #111; stroke-width: 2; rx: 10; }
+      .subbox{ fill: #fff; stroke: #111; stroke-width: 1.8; rx: 8; }
+      .wire  { stroke: #111; stroke-width: 2.2; fill: none; }
+      .dash  { stroke-dasharray: 6 6; }
+      .node  { fill: #111; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#111" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="700" y="40" text-anchor="middle" class="title">[도 4] 선택적 외부 신호 전달 관계 개념도</text>
+
+  <!-- Core loop container -->
+  <rect x="80" y="80" width="1240" height="360" class="box" />
+  <text x="700" y="120" text-anchor="middle" class="label">상태 순환 아키텍처 (핵심 폐루프)</text>
+
+  <!-- Inner loop -->
+  <rect x="220" y="150" width="960" height="190" class="subbox" />
+  <text x="700" y="190" text-anchor="middle" class="text">전조 입력 → 상태 누적 → 임계 도달 → 사건</text>
+  <path d="M 380 230 H 1020" class="wire" marker-end="url(#arrow)" />
+  <path d="M 380 230 H 220" class="wire" />
+  <path d="M 220 230 v 60 h 800 v -60" class="wire" marker-end="url(#arrow)" />
+  <text x="700" y="315" text-anchor="middle" class="text">환류</text>
+
+  <!-- Self recovery module -->
+  <rect x="980" y="260" width="180" height="120" class="subbox" />
+  <text x="1070" y="305" text-anchor="middle" class="text">자가복구</text>
+  <text x="1070" y="328" text-anchor="middle" class="text">(안정화→재감지)</text>
+
+  <!-- Connection down from core -->
+  <line x1="700" y1="440" x2="700" y2="520" class="wire" marker-end="url(#arrow)" />
+
+  <!-- Event pulse -->
+  <rect x="610" y="520" width="180" height="70" class="subbox" />
+  <text x="700" y="560" text-anchor="middle" class="text">이산 사건</text>
+  <text x="700" y="582" text-anchor="middle" class="text">Event_Pulse</text>
+
+  <!-- Split lines -->
+  <line x1="700" y1="590" x2="700" y2="640" class="wire" />
+  <line x1="700" y1="640" x2="350" y2="640" class="wire" />
+  <line x1="700" y1="640" x2="1050" y2="640" class="wire" />
+  <line x1="350" y1="640" x2="350" y2="700" class="wire" marker-end="url(#arrow)" />
+  <line x1="700" y1="640" x2="700" y2="700" class="wire" marker-end="url(#arrow)" />
+  <line x1="1050" y1="640" x2="1050" y2="700" class="wire" marker-end="url(#arrow)" />
+
+  <!-- Three modules row -->
+  <rect x="200" y="700" width="300" height="150" class="box" />
+  <rect x="550" y="700" width="300" height="150" class="box" />
+  <rect x="900" y="700" width="300" height="150" class="box" />
+
+  <text x="350" y="730" text-anchor="middle" class="label">물리 반사</text>
+  <text x="350" y="755" text-anchor="middle" class="label">액츄에이터</text>
+  <text x="350" y="785" text-anchor="middle" class="text">• 릴레이</text>
+  <text x="350" y="808" text-anchor="middle" class="text">• 솔레노이드</text>
+  <text x="350" y="831" text-anchor="middle" class="text">• 파워 스위치</text>
+
+  <text x="700" y="730" text-anchor="middle" class="label">AI 분석</text>
+  <text x="700" y="755" text-anchor="middle" class="label">모듈</text>
+  <text x="700" y="785" text-anchor="middle" class="text">• 패턴 인식</text>
+  <text x="700" y="808" text-anchor="middle" class="text">• 학습</text>
+  <text x="700" y="831" text-anchor="middle" class="text">• 예측</text>
+
+  <text x="1050" y="730" text-anchor="middle" class="label">로깅 및</text>
+  <text x="1050" y="755" text-anchor="middle" class="label">모니터링</text>
+  <text x="1050" y="785" text-anchor="middle" class="text">• 이벤트 기록</text>
+  <text x="1050" y="808" text-anchor="middle" class="text">• 통계</text>
+  <text x="1050" y="831" text-anchor="middle" class="text">• 보고</text>
+
+  <!-- Bottom outcomes -->
+  <line x1="350" y1="850" x2="350" y2="890" class="wire" marker-end="url(#arrow)" />
+  <line x1="700" y1="850" x2="700" y2="890" class="wire" marker-end="url(#arrow)" />
+  <line x1="1050" y1="850" x2="1050" y2="890" class="wire" marker-end="url(#arrow)" />
+
+  <rect x="200" y="890" width="300" height="70" class="subbox" />
+  <rect x="550" y="890" width="300" height="70" class="subbox" />
+  <rect x="900" y="890" width="300" height="70" class="subbox" />
+
+  <text x="350" y="922" text-anchor="middle" class="text">즉각 물리적 반응 수행</text>
+  <text x="350" y="945" text-anchor="middle" class="text">• 전원 차단 • 브레이크 • 경보</text>
+
+  <text x="700" y="922" text-anchor="middle" class="text">사후 분석 및 의사결정</text>
+  <text x="700" y="945" text-anchor="middle" class="text">• 추세 분석 • 최적화 • 정책 업데이트</text>
+
+  <text x="1050" y="922" text-anchor="middle" class="text">시스템 상태 모니터</text>
+  <text x="1050" y="945" text-anchor="middle" class="text">• 건강 상태 평가 • 유지보수 알림</text>
+
+  <!-- Notes -->
+  <rect x="80" y="980" width="1240" height="60" class="box" />
+  <text x="100" y="1015" class="text">주의사항: 외부 모듈들은 상태 순환 루프의 파라미터에 실시간으로 개입하지 않음 · 이산 사건 신호는 읽기 전용(read-only)으로 전달됨 · 핵심 판단 루프는 외부 모듈과 독립적으로 운영됨</text>
+
+  <!-- Circuit nodes -->
+  <circle cx="700" cy="520" r="4" class="node" />
+  <circle cx="350" cy="640" r="4" class="node" />
+  <circle cx="700" cy="640" r="4" class="node" />
+  <circle cx="1050" cy="640" r="4" class="node" />
+</svg>
